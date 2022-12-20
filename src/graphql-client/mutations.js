@@ -9,4 +9,13 @@ const createBook = gql`
   }
 `;
 
-export { createBook };
+const createAuthor = gql`
+  mutation createAuthor($name: String, $age: Int) {
+    createAuthor(name: $name, age: $age) {
+      id
+      name
+    }
+  }
+`;
+
+export { createBook, createAuthor };

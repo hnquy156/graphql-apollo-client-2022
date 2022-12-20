@@ -3,3 +3,8 @@ export const DEFAUTL_BOOK = {
   genre: '',
   authorId: '',
 };
+
+export const DEFAUTL_AUTHOR = {
+  name: '',
+  age: '',
+};
