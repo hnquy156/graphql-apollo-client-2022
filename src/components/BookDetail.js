@@ -9,23 +9,23 @@ export default function BookDetail({ bookId }) {
   });
   if (loading) return 'Loading ...';
   if (error) return error.message;
-  const book = data.book;
+  const book = data?.book;
+
+  if (!book) return <Card>Please select book!</Card>;
 
   return (
     <Card>
       <Card.Body>
         <Card.Title>Tên {book.name}</Card.Title>
         <Card.Subtitle>Thể loại {book.genre}</Card.Subtitle>
-        <Card.Text>
-          <div>Tác giả {book.author.name}</div>
-          <div>Tuổi {book.author.age}</div>
-          <div>Sách thuộc tác giả</div>
-          <ul>
-            {book.author.books?.map((b) => (
-              <li key={b.id}>{b.name}</li>
-            ))}
-          </ul>
-        </Card.Text>
+        <div>Tác giả {book.author.name}</div>
+        <div>Tuổi {book.author.age}</div>
+        <div>Sách thuộc tác giả</div>
+        <ul>
+          {book.author.books?.map((b) => (
+            <li key={b.id}>{b.name}</li>
+          ))}
+        </ul>
       </Card.Body>
     </Card>
   );
